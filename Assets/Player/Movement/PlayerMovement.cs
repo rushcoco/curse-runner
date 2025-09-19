@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputActionReference directionInput;
     [SerializeField] private InputActionReference runningInput;
     private CharacterController selfCharacterController;
+    private bool isRunningActivated;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        isRunningActivated = false;
         selfCharacterController = GetComponent<CharacterController>();
     }
 
@@ -44,6 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDownRunningInput(InputAction.CallbackContext context)
     {
-        
+        isRunningActivated = !isRunningActivated;
     }
 }
