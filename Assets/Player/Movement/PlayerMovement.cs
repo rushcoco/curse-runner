@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         float movementSpeed = isRunningActivated ? runningMovementSpeed : walkingMovementSpeed;
         
         Vector2 directionVector = directionInput.action.ReadValue<Vector2>();
-        Vector3 movementVector = (Vector3.right * directionVector.x + Vector3.forward * directionVector.y) * movementSpeed;
+        Vector3 movementVector = (transform.right * directionVector.x + transform.forward * directionVector.y) * movementSpeed;
 
         selfCharacterController.Move(movementVector * Time.deltaTime);
     }
