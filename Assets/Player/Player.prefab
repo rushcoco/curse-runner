@@ -369,15 +369,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ad449511a73a04ba7f5bc70640337c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  directionInput: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  runningInput: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  jumpingInput: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  walkingMovementSpeed: 4
-  runningMovementSpeed: 15
-  idleJumpingHeight: 2
-  walkingJumpingHeight: 7
-  runningJumpingHeight: 13
-  rangeOfVariatiableJumpingHeight: 3
+  inputMoving: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inputBoosting: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  inputJumping: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  movementSpeedStarting: 0.01
+  movementSpeedBoosting: 35
+  movementSpeedMax: 40
+  accelerationGrounded: 25
+  accelerationAir: 6
+  deceleration: 70
+  stickToGroundAtXVelocity: -2
+  snapToGroundAtXDistance: 0.2
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  minJumpHeightWhenPlayerIsIdle: 0.5
+  minJumpHeightWhenPlayerIsWalking: 1
+  minJumpHeightWhenPlayerIsRunning: 3
+  maxJumpHeightWhenPlayerIsIdle: 1.5
+  maxJumpHeightWhenPlayerIsWalking: 3
+  maxJumpHeightWhenPlayerIsRunning: 8.5
+  holdJumpButtonForXAmountOfSecondsForMaxJump: 1.8
+  coyoteTime: 0.1
+  jumpBuffer: 0.1
+  maxFallSpeed: 80
+  gravity: 35
+  walkSpeedThreshold: 0.01
+  runSpeedThreshold: 10
 --- !u!1001 &7757089557835187816
 PrefabInstance:
   m_ObjectHideFlags: 0

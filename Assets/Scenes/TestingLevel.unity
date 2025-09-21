@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 1227568893}
   - component: {fileID: 1227568892}
   - component: {fileID: 1227568891}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1348,7 +1348,7 @@ GameObject:
   - component: {fileID: 1386756902}
   - component: {fileID: 1386756901}
   - component: {fileID: 1386756900}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1700,7 +1700,7 @@ GameObject:
   - component: {fileID: 1519763256}
   - component: {fileID: 1519763255}
   - component: {fileID: 1519763254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2059,6 +2059,58 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: gravity
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: coyoteTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: jumpBuffer
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: inputMoving
+      value: 
+      objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: deceleration
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: inputJumping
+      value: 
+      objectReference: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: maxFallSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: inputBoosting
+      value: 
+      objectReference: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: accelerationAir
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: movementSpeedMax
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: runSpeedThreshold
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: walkSpeedThreshold
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: accelerationGrounded
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: runningMovementSpeed
       value: 15
       objectReference: {fileID: 0}
@@ -2066,13 +2118,61 @@ PrefabInstance:
       propertyPath: walkingMovementSpeed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: movementSpeedBoosting
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: movementSpeedStarting
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: snapToGroundAtODistance
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: snapToGroundAtXDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: stickToGroundAtXVelocity
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: maxJumpHeightWhenPlayerIsIdle
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: minJumpHeightWhenPlayerIsIdle
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: maxJumpHeightWhenPlayerIsRunning
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: maxJumpHeightWhenPlayerIsWalking
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: minJumpHeightWhenPlayerIsRunning
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: minJumpHeightWhenPlayerIsWalking
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: holdJumpButtonForXAmountOfSecondsForMaxJump
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 3632129726095224898, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632129726095224898, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3632129726095224898, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2110,6 +2210,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.471
       objectReference: {fileID: 0}
+    - target: {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: coyoteTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: jumpBuffer
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: maxFallSpeed
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: runSpeedThreshold
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: walkSpeedThreshold
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7729993718879265712, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_Flip.x
       value: 0
@@ -2130,7 +2250,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5840979692175163930, guid: a2146afce2468f349a64374edff4c452, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8156808588280137316, guid: a2146afce2468f349a64374edff4c452, type: 3}
@@ -2157,7 +2278,7 @@ GameObject:
   - component: {fileID: 1708836039}
   - component: {fileID: 1708836038}
   - component: {fileID: 1708836037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2509,7 +2630,7 @@ GameObject:
   - component: {fileID: 1710033268}
   - component: {fileID: 1710033267}
   - component: {fileID: 1710033266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3340,7 +3461,7 @@ GameObject:
   - component: {fileID: 2020581150}
   - component: {fileID: 2020581149}
   - component: {fileID: 2020581148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
