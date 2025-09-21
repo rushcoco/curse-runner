@@ -165,12 +165,14 @@ public class PlayerMovement : MonoBehaviour
         velocity.z = currentPlanarVelocity.z;
 
         // Project planar motion onto ground plane for slope sticking
+        /*
         if (grounded)
         {
             var alongGround = Vector3.ProjectOnPlane(new Vector3(velocity.x, 0f, velocity.z), groundNormal);
             velocity.x = alongGround.x;
             velocity.z = alongGround.z;
-        }
+        */
+        //}
 
         if (velocity.y < -maxFallSpeed)
             velocity.y = -maxFallSpeed;
