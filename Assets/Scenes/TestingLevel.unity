@@ -2076,7 +2076,7 @@ PrefabInstance:
       objectReference: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: deceleration
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: inputJumping
@@ -2092,11 +2092,11 @@ PrefabInstance:
       objectReference: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: accelerationAir
-      value: 25
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: movementSpeedMax
-      value: 80
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: runSpeedThreshold
@@ -2108,7 +2108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: accelerationGrounded
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: runningMovementSpeed
@@ -2120,7 +2120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: movementSpeedBoosting
-      value: 70
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: movementSpeedStarting
