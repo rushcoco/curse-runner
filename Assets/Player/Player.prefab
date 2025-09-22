@@ -224,9 +224,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -373,11 +373,11 @@ MonoBehaviour:
   inputBoosting: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputJumping: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   movementSpeedStarting: 0.01
-  movementSpeedBoosting: 96
+  movementSpeedBoosting: 48
   movementSpeedMax: 24
-  accelerationGrounded: 64
-  accelerationAir: 22
-  deceleration: 26
+  accelerationGrounded: 96
+  accelerationAir: 26
+  deceleration: 36
   stickToGroundAtXVelocity: -0.02
   snapToGroundAtXDistance: 0.2
   groundLayer:
