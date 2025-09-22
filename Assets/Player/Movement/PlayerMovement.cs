@@ -105,11 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-    }
-
-    private void FixedUpdate()
-    {
-        float deltaTime = Time.fixedDeltaTime;
+        float deltaTime = Time.deltaTime;
         skipDecelThisFrame = false;
 
         UpdateGround();
