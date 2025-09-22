@@ -373,29 +373,29 @@ MonoBehaviour:
   inputBoosting: {fileID: -7471211009204490832, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   inputJumping: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   movementSpeedStarting: 0.01
-  movementSpeedBoosting: 42
-  movementSpeedMax: 32
-  accelerationGrounded: 6
-  accelerationAir: 4
-  deceleration: 80
+  movementSpeedBoosting: 96
+  movementSpeedMax: 24
+  accelerationGrounded: 64
+  accelerationAir: 22
+  deceleration: 26
   stickToGroundAtXVelocity: -0.02
   snapToGroundAtXDistance: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   minJumpHeightWhenPlayerIsIdle: 1
-  minJumpHeightWhenPlayerIsWalking: 3
-  minJumpHeightWhenPlayerIsRunning: 8
-  maxJumpHeightWhenPlayerIsIdle: 3.5
-  maxJumpHeightWhenPlayerIsWalking: 7
-  maxJumpHeightWhenPlayerIsRunning: 13
-  holdJumpButtonForXAmountOfSecondsForMaxJump: 1.6
+  minJumpHeightWhenPlayerIsWalking: 2
+  minJumpHeightWhenPlayerIsRunning: 3.5
+  maxJumpHeightWhenPlayerIsIdle: 4
+  maxJumpHeightWhenPlayerIsWalking: 6
+  maxJumpHeightWhenPlayerIsRunning: 8.5
+  holdJumpButtonForXAmountOfSecondsForMaxJump: 1.8
   coyoteTime: 0.2
   jumpBuffer: 0.2
-  maxFallSpeed: 120
-  gravity: 75
-  walkSpeedThreshold: 4
-  runSpeedThreshold: 22
+  maxFallSpeed: 75
+  gravity: 64
+  walkSpeedThreshold: 6
+  runSpeedThreshold: 18
 --- !u!1001 &7757089557835187816
 PrefabInstance:
   m_ObjectHideFlags: 0
