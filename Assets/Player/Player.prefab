@@ -545,7 +545,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3632129726095224898}
   - component: {fileID: 2892906438796648307}
+  - component: {fileID: 4485381562987029103}
   - component: {fileID: 2401872503660893913}
+  - component: {fileID: 8756138315546493721}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -597,6 +599,45 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4485381562987029103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156993022978663049}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88e9e02498fdc947a3907c3ee388c56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputMoving: {fileID: 0}
+  inputBoosting: {fileID: 0}
+  inputJumping: {fileID: 0}
+  movementSpeedWalk: 0
+  movementSpeedLightJog: 0
+  movementSpeedJog: 0
+  movementSpeedLightRun: 0
+  movementSpeedRun: 0
+  movementSpeedBoosted: 0
+  rateOfAccelerationTowardsLightJog: 0
+  rateOfAccelerationTowardsJog: 0
+  rateOfAccelerationTowardsLightRun: 0
+  rateOfAccelerationTowardsRun: 0
+  rateOfDecelerationTowardsIdle: 0
+  rateOfDecelerationTowardsWalk: 0
+  rateOfDecelerationTowardsLightJog: 0
+  rateOfDecelerationTowardsJog: 0
+  rateOfDecelerationTowardsLightRun: 0
+  rateOfDecelerationTowardsRun: 0
+  angleOfHighDecelerationBecauseAngleIsLargerThan: 0
+  minJumpHeight: 0
+  maxJumpHeightWhenPlayerIsIdle: 0
+  maxJumpHeightWhenPlayerIsRunning: 0
+  maxJumpHeightWhenPlayerIsBoosted: 0
+  coyoteTime: 0
+  jumpBuffer: 0
+  gravity: 0
 --- !u!114 &2401872503660893913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -636,6 +677,18 @@ MonoBehaviour:
   gravity: 64
   walkSpeedThreshold: 6
   runSpeedThreshold: 18
+--- !u!114 &8756138315546493721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9156993022978663049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae23a0bf658dc940bedd91257cf70ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7757089557835187816
 PrefabInstance:
   m_ObjectHideFlags: 0

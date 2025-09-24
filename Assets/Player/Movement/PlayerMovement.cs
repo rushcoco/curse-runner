@@ -4,6 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Input")] [SerializeField] private InputActionReference inputMoving;
@@ -103,9 +104,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
-        float deltaTime = Time.fixedDeltaTime;
+        float deltaTime = Time.deltaTime;
         skipDecelThisFrame = false;
 
         UpdateGround();
@@ -129,18 +130,24 @@ public class PlayerMovement : MonoBehaviour
         float decelerate = grounded ? deceleration : 0f;
 
         // Apply Acceleration
+        // Add here check to see if wishedMovement and currentPlanar Velocity are close to opposite directions
         var deltaVelocity = wishedMovement - currentPlanarVelocity;
+        var velocity2D = new Vector2(velocity.x, velocity.z);
+        Vector2 wishedMovement2D = Vector2.right * wishedDirection.x + Vector2.up * wishedDirection.z;
+        var angle = Vector2.Angle(velocity2D, wishedMovement2D);
+        Debug.Log(angle);
+            
         var singleFrameAccelerationStep = Vector3.ClampMagnitude(deltaVelocity, accelerate * deltaTime);
         currentPlanarVelocity += singleFrameAccelerationStep;
 
         // Apply Deceleration, when grounded and no input (unless just boosted)
-        if (!skipDecelThisFrame && grounded && wishedMovement.sqrMagnitude < 1e-4f) // what does 1e-4f stand for?
+        /*if (!skipDecelThisFrame && grounded && wishedMovement.sqrMagnitude < 1e-4f) // what does 1e-4f stand for?
         {
             var drop = Mathf.Min(currentPlanarVelocity.magnitude, decelerate * deltaTime);
             currentPlanarVelocity = currentPlanarVelocity.magnitude > 1e-4f
                 ? currentPlanarVelocity.normalized * (currentPlanarVelocity.magnitude - drop)
                 : Vector3.zero;
-        }
+        }*/
 
         // Apply Gravity
         velocity.y += -gravity * deltaTime;
@@ -181,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         grounded = false;
         groundNormal = Vector3.up;
         
-        Debug.Log("Update Ground entered");
+        // Debug.Log("Update Ground entered");
 
         var origin = transform.position + Vector3.up * 0.05f; // why 0.05f? what does that number mean?
         var rayLength = characterSelf.height * 0.5f + snapToGroundAtXDistance;
@@ -189,15 +196,27 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.SphereCast(origin, characterSelf.radius * 0.95f, Vector3.down, out var hit, rayLength, groundLayer,
                 QueryTriggerInteraction.Ignore))
         {
-            Debug.Log("Found Ground?");
+            // Debug.Log("Found Ground?");
             var slope = Vector3.Angle(hit.normal, Vector3.up);
-            if (slope <= characterSelf.slopeLimit + 0.5f) // what do these numbers mean?
+            if (slope <= characterSelf.slopeLimit + 0.5f)
             {
                 grounded = true;
                 groundNormal = hit.normal;
                 lastGroundedTime = Time.time;
-                Debug.Log("Ground is true");
+                // Debug.Log("Ground is true");
             }
+        }
+        
+        Debug.Log("Ray " + grounded + " cc " + characterSelf.isGrounded);
+    }
+
+    private void UpdateGround2()
+    {
+        grounded = characterSelf.isGrounded;
+
+        if (grounded)
+        {
+            
         }
     }
 
