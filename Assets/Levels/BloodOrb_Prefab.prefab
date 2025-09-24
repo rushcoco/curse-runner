@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5670437580099537028}
   - component: {fileID: 4562309750304605671}
   - component: {fileID: 8342405689235559634}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blood Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4846,7 +4846,7 @@ GameObject:
   - component: {fileID: 1817707724504462320}
   - component: {fileID: 1717721226811543491}
   - component: {fileID: 897028535964929342}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blood Orb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4952,7 +4952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1962158493458277246}
   - component: {fileID: 2098411502524311818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BloodOrb_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
