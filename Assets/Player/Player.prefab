@@ -902,12 +902,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae23a0bf658dc940bedd91257cf70ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusOfAreaWhichGrappableIsDetected: 2
-  distanceOfDetectableGrappable: 10
-  maxDistance: 15
+  radiusOfAreaWhichGrappableIsDetected: 1
+  lengthOfDetectableGrappable: 12
+  distanceWhereDetectionForGrappableStarts: 2.5
+  distanceWhereDetectionForGrappableEnds: 22
+  maxDistance: 30
   layerToGrapple:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   cameraPlayer: {fileID: 4014435533472361325}
 --- !u!1001 &7757089557835187816
 PrefabInstance:
