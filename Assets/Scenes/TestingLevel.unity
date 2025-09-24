@@ -3338,6 +3338,63 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &632362562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651410132418834868, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_Name
+      value: BloodOrb_Prefab (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c202217d3847aba47afb43e59deeca34, type: 3}
 --- !u!1 &740978052
 GameObject:
   m_ObjectHideFlags: 0
@@ -8658,3 +8715,4 @@ SceneRoots:
   - {fileID: 1441703228}
   - {fileID: 401980433}
   - {fileID: 955352065}
+  - {fileID: 632362562}
