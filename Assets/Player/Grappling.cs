@@ -21,6 +21,7 @@ public class Grappling : MonoBehaviour
     // - cursor position to screen?
     [SerializeField] private Camera cameraPlayer;
     [SerializeField] private float rangeBetweenPlayerAndGrappableToStopGrappling;
+    [SerializeField] private float speedAtWhichPlayerIsReachingToTheOrb;
     // Needs a thing to hit the other Objects and do check
     // - Raycast?
     // - Physics
@@ -145,7 +146,7 @@ public class Grappling : MonoBehaviour
             Vector3 move = hit.transform.position - transform.position;
             Debug.Log(move);
             move = move.normalized;
-            playerMovement.externalVelocity = move * 10f;
+            playerMovement.externalVelocity = move * speedAtWhichPlayerIsReachingToTheOrb;
             yield return null;
         }
         playerMovement.externalVelocity = Vector3.zero;
