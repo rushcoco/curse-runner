@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         var velocity2D = new Vector2(velocity.x, velocity.z);
         Vector2 wishedMovement2D = Vector2.right * wishedDirection.x + Vector2.up * wishedDirection.z;
         var angle = Vector2.Angle(velocity2D, wishedMovement2D);
-        Debug.Log(angle);
+        // Debug.Log(angle);
             
         var singleFrameAccelerationStep = Vector3.ClampMagnitude(deltaVelocity, accelerate * deltaTime);
         currentPlanarVelocity += singleFrameAccelerationStep;
@@ -190,8 +190,8 @@ public class PlayerMovement : MonoBehaviour
         
         // Debug.Log("Update Ground entered");
 
-        var origin = transform.position + Vector3.up * 0.05f; // why 0.05f? what does that number mean?
-        var rayLength = characterSelf.height * 0.5f + snapToGroundAtXDistance;
+        var origin = transform.position + Vector3.up * 0.05f; // why 0.05f? So that the origin position is slightly above the ground
+        var rayLength = characterSelf.height * 0.5f + snapToGroundAtXDistance; // half the height + the distance from gameobject to distance to have to ground
 
         if (Physics.SphereCast(origin, characterSelf.radius * 0.95f, Vector3.down, out var hit, rayLength, groundLayer,
                 QueryTriggerInteraction.Ignore))
@@ -207,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         
-        Debug.Log("Ray " + grounded + " cc " + characterSelf.isGrounded);
+        //Debug.Log("Ray " + grounded + " cc " + characterSelf.isGrounded);
     }
 
     private void UpdateGround2()
