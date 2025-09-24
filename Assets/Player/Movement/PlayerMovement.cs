@@ -50,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector3 groundNormal;
     private bool grounded;
-    public Vector3 externalVelocity { get; set; }
+    public Vector3 externalGrapplingVelocity { get; set; }
+    private bool isVelocityFrozen;
 
     // Jump State
     private bool isJumpInputBeingHeld;
@@ -103,7 +104,8 @@ public class PlayerMovement : MonoBehaviour
         skipDecelThisFrame = false;
         isJumpInputBeingHeld = false;
         
-        externalVelocity = Vector3.zero;
+        externalGrapplingVelocity = Vector3.zero;
+        isVelocityFrozen = false;
     }
 
 
@@ -111,9 +113,17 @@ public class PlayerMovement : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
         skipDecelThisFrame = false;
+        Vector3 finalVelocity;
 
         UpdateGround();
 
+        if (isVelocityFrozen)
+        {
+            
+            finalVelocity = velocity + externalGrapplingVelocity;
+            characterSelf.Move(finalVelocity * deltaTime);
+            return;
+        }
         Vector2 inputDirection = inputMoving.action.ReadValue<Vector2>();
         Vector3 wishedDirection = (transform.right * inputDirection.x + transform.forward * inputDirection.y);
         wishedDirection = Vector3.ClampMagnitude(wishedDirection, 1f);
@@ -183,8 +193,8 @@ public class PlayerMovement : MonoBehaviour
         if (velocity.y < -maxFallSpeed)
             velocity.y = -maxFallSpeed;
 
-        Vector3 finalVelocity = velocity + externalVelocity;
-        characterSelf.Move(finalVelocity * deltaTime);
+        velocity += externalGrapplingVelocity;
+        characterSelf.Move(velocity * deltaTime);
     }
 
     private void UpdateGround()
@@ -328,5 +338,30 @@ public class PlayerMovement : MonoBehaviour
     {
         minimumHeight = lastMinimumJumpHeight;
         maximumHeight = lastMaximumJumpHeight;
+    }
+
+    public void SetVelocity(Vector3 move)
+    {
+        velocity = move;
+    }
+
+    public void AddExternalVelocity(Vector3 external)
+    {
+        velocity += external;
+    }
+
+    public void FreezeVelocity()
+    {
+        isVelocityFrozen = true;
+    }
+
+    public void UnfreezeVelocity()
+    {
+        isVelocityFrozen = false;
+    }
+
+    public float GetVelocityMagnitude()
+    {
+        return velocity.magnitude;
     }
 }
