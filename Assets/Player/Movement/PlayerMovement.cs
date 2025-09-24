@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocity;
     private Vector3 groundNormal;
     private bool grounded;
+    public Vector3 externalVelocity { get; set; }
 
     // Jump State
     private bool isJumpInputBeingHeld;
@@ -101,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
         boostPending = false;
         skipDecelThisFrame = false;
         isJumpInputBeingHeld = false;
+        
+        externalVelocity = Vector3.zero;
     }
 
 
@@ -180,7 +183,8 @@ public class PlayerMovement : MonoBehaviour
         if (velocity.y < -maxFallSpeed)
             velocity.y = -maxFallSpeed;
 
-        characterSelf.Move(velocity * deltaTime);
+        Vector3 finalVelocity = velocity + externalVelocity;
+        characterSelf.Move(finalVelocity * deltaTime);
     }
 
     private void UpdateGround()

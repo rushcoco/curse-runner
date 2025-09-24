@@ -902,6 +902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ae23a0bf658dc940bedd91257cf70ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputGrapple: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   radiusOfAreaWhichGrappableIsDetected: 1
   lengthOfDetectableGrappable: 12
   distanceWhereDetectionForGrappableStarts: 2.5
