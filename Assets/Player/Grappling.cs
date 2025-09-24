@@ -140,10 +140,11 @@ public class Grappling : MonoBehaviour
     private IEnumerator MoveTowardsGrappledObject(RaycastHit hit)
     {
         
-        while (Vector3.Distance(transform.position, hit.transform.position) > distanceWhereDetectionForGrappableEnds)
+        while (Vector3.Distance(transform.position, hit.transform.position) > rangeBetweenPlayerAndGrappableToStopGrappling)
         {
-            
             Vector3 move = hit.transform.position - transform.position;
+            Debug.Log(move);
+            move = move.normalized;
             playerMovement.externalVelocity = move * 10f;
             yield return null;
         }

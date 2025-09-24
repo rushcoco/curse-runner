@@ -912,6 +912,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   cameraPlayer: {fileID: 4014435533472361325}
+  rangeBetweenPlayerAndGrappableToStopGrappling: 3
 --- !u!1001 &7757089557835187816
 PrefabInstance:
   m_ObjectHideFlags: 0
