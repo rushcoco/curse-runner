@@ -71,7 +71,8 @@ public class Grappling : MonoBehaviour
         //cameraPlayer = Camera.main;
         point1 = Vector3.zero;
         point2 = Vector3.zero;
-        
+        isGrappling = false;
+
     }
 
     private void Update()
@@ -121,6 +122,8 @@ public class Grappling : MonoBehaviour
 
     private void OnPerformedGrapple(InputAction.CallbackContext context)
     {
+        if (isGrappling)
+            return;
         
         Ray ray = new Ray(cameraPlayer.transform.position, cameraPlayer.transform.forward);
         /*RaycastHit[] hits = new RaycastHit[] {};
@@ -137,6 +140,7 @@ public class Grappling : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Ignore))
         {
+            isGrappling = true;
             Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
             grapplingAnimator.SetBool(Grapple, true);
             StartCoroutine(MoveTowardsGrappledObject(hit));
@@ -168,10 +172,10 @@ public class Grappling : MonoBehaviour
         grapplingAnimator.SetBool(Grapple, false);
         while (secondsAfterReachingOrbWhereJumpEffectHoldsOn > 0f)
         {
-            var nextPos = Vector3.Lerp(transform.position, transform.position + directionInitial.normalized + Vector3.up * directionInitial.magnitude, secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
+            var nextPos = Vector3.Lerp(transform.position, transform.position + directionInitial + Vector3.up * Mathf.Sqrt(magnitudeOfPlayerBeforeReachingOrb), secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
             secondsAfterReachingOrbWhereJumpEffectHoldsOn -= Time.deltaTime;
 
-            playerMovement.externalGrapplingVelocity = nextPos.normalized;
+            playerMovement.externalGrapplingVelocity = nextPos.normalized * directionInitial.magnitude;
             //playerMovement.externalGrapplingVelocity = (nextPos + Vector3.up * 
             //Mathf.Clamp(magnitudeOfPlayerBeforeReachingOrb * adjustingJumpHeightByMultiplyingFinalValue,minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb))
             // * adjustingJumpHeightByMultiplyingFinalValue;
@@ -181,5 +185,6 @@ public class Grappling : MonoBehaviour
 
         secondsAfterReachingOrbWhereJumpEffectHoldsOn = totalSecondsAfterReachingOrb;
         playerMovement.externalGrapplingVelocity = Vector3.zero;
+        isGrappling = false;
     }
 }

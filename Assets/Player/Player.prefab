@@ -914,7 +914,7 @@ MonoBehaviour:
   cameraPlayer: {fileID: 4014435533472361325}
   rangeBetweenPlayerAndGrappableToStopGrappling: 1.4
   speedAtWhichPlayerIsReachingToTheOrb: 90
-  secondsAfterReachingOrbWhereJumpEffectHoldsOn: 2.5
+  secondsAfterReachingOrbWhereJumpEffectHoldsOn: 0.3
   minimumJumpHeightAfterOrb: 4
   maximumJumpHeightAfterOrb: 30
   adjustingJumpLerpByMultiplyingSeconds: 2.4
