@@ -893,8 +893,8 @@ MonoBehaviour:
   runSpeedThreshold: 18
   mainCamera: {fileID: 4014435533472361325}
   cameraFovOnIdle: 80
-  cameraFovOnMaxSpeed: 110
-  cameraFovOnGrapple: 134
+  cameraFovOnMaxSpeed: 90
+  cameraFovOnGrapple: 110
   cameraYMovementInMetersWhenPlayerLands: 1
   cameraYIsMovingHowManySeconds: 0.1
 --- !u!114 &8756138315546493721
@@ -1088,19 +1088,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.456
+      value: -0.522
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99848914
+      value: 0.99691737
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.05495013
+      value: -0.078459024
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1112,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -6.3
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e9e3ee96b0a6928499e27794894f9bbd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
