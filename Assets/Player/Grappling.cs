@@ -138,8 +138,16 @@ public class Grappling : MonoBehaviour
         }*/
 
 
-        if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Collide))
         {
+            Vector3 kdsafj = hit.transform.position - transform.position;
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, kdsafj.magnitude))
+            {
+                LayerMask hitLayer = hitInfo.transform.gameObject.layer;
+                if (hitLayer == LayerMask.NameToLayer("Ground") || hitLayer == LayerMask.NameToLayer("Default"))
+                    return;
+            }
+            Debug.Log(Physics.queriesHitTriggers);
             isGrappling = true;
             Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
             grapplingAnimator.SetBool(Grapple, true);
