@@ -147,9 +147,11 @@ public class Grappling : MonoBehaviour
                 if (hitLayer == LayerMask.NameToLayer("Ground") || hitLayer == LayerMask.NameToLayer("Default"))
                     return;
             }
-            Debug.Log(Physics.queriesHitTriggers);
+            //Debug.Log(Physics.queriesHitTriggers);
             isGrappling = true;
-            Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
+            //
+            //
+            //Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
             grapplingAnimator.SetBool(Grapple, true);
             StartCoroutine(MoveTowardsGrappledObject(hit));
         }
@@ -166,7 +168,8 @@ public class Grappling : MonoBehaviour
     private IEnumerator MoveTowardsGrappledObject(RaycastHit hit)
     {
         playerMovement.FreezeVelocity();
-        var magnitudeOfPlayerBeforeReachingOrb = playerMovement.GetVelocityMagnitude();
+        var magnitudeOfPlayerBeforeReachingOrb = Mathf.Clamp(playerMovement.GetVelocityMagnitude(),minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb);
+        var magnitudeOfPlayerBeforeReachingOrb2D = playerMovement.GetVelocity2DMagnitude();
         var directionInitial = hit.transform.position - transform.position;
         
         while (Vector3.Distance(transform.position, hit.transform.position) > rangeBetweenPlayerAndGrappableToStopGrappling)
@@ -183,7 +186,8 @@ public class Grappling : MonoBehaviour
             var nextPos = Vector3.Lerp(Vector3.zero, directionInitial, secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
             secondsAfterReachingOrbWhereJumpEffectHoldsOn -= Time.deltaTime;
 
-            playerMovement.externalGrapplingVelocity = nextPos.normalized * (magnitudeOfPlayerBeforeReachingOrb + 1) + Vector3.up * directionInitial.magnitude + directionInitial;
+            playerMovement.externalGrapplingVelocity = (nextPos.normalized + directionInitial.normalized) * (magnitudeOfPlayerBeforeReachingOrb + 1) + Vector3.up * magnitudeOfPlayerBeforeReachingOrb2D;
+            Debug.Log(magnitudeOfPlayerBeforeReachingOrb);
             //playerMovement.externalGrapplingVelocity = (nextPos + Vector3.up * 
             //Mathf.Clamp(magnitudeOfPlayerBeforeReachingOrb * adjustingJumpHeightByMultiplyingFinalValue,minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb))
             // * adjustingJumpHeightByMultiplyingFinalValue;

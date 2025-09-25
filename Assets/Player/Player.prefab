@@ -922,8 +922,8 @@ MonoBehaviour:
   rangeBetweenPlayerAndGrappableToStopGrappling: 1
   speedAtWhichPlayerIsReachingToTheOrb: 90
   secondsAfterReachingOrbWhereJumpEffectHoldsOn: 0.3
-  minimumJumpHeightAfterOrb: 4
-  maximumJumpHeightAfterOrb: 30
+  minimumJumpHeightAfterOrb: 2
+  maximumJumpHeightAfterOrb: 18
   adjustingJumpLerpByMultiplyingSeconds: 2.4
   adjustingJumpHeightByMultiplyingFinalValue: 3.4
   armGrapple: {fileID: 8446688174634635090}

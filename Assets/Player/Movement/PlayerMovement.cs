@@ -390,4 +390,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return velocity.magnitude;
     }
+
+    public float GetVelocity2DMagnitude()
+    {
+        return velocity2D.magnitude;
+    }
 }
