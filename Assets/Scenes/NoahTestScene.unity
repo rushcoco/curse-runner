@@ -8158,6 +8158,120 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.474}
+--- !u!1001 &678734649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -52.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 16.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651410132418834868, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_Name
+      value: BloodOrb_Prefab (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+--- !u!1001 &771710626
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -40.43875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1962158493458277246, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651410132418834868, guid: c202217d3847aba47afb43e59deeca34, type: 3}
+      propertyPath: m_Name
+      value: BloodOrb_Prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c202217d3847aba47afb43e59deeca34, type: 3}
 --- !u!1 &814728498
 GameObject:
   m_ObjectHideFlags: 0
@@ -40397,3 +40511,5 @@ SceneRoots:
   - {fileID: 1366941899}
   - {fileID: 1807132560}
   - {fileID: 2362526}
+  - {fileID: 771710626}
+  - {fileID: 678734649}

@@ -180,16 +180,17 @@ public class Grappling : MonoBehaviour
         grapplingAnimator.SetBool(Grapple, false);
         while (secondsAfterReachingOrbWhereJumpEffectHoldsOn > 0f)
         {
-            var nextPos = Vector3.Lerp(transform.position, transform.position + directionInitial + Vector3.up * Mathf.Sqrt(magnitudeOfPlayerBeforeReachingOrb), secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
+            var nextPos = Vector3.Lerp(Vector3.zero, directionInitial, secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
             secondsAfterReachingOrbWhereJumpEffectHoldsOn -= Time.deltaTime;
 
-            playerMovement.externalGrapplingVelocity = nextPos.normalized * directionInitial.magnitude;
+            playerMovement.externalGrapplingVelocity = nextPos.normalized * (magnitudeOfPlayerBeforeReachingOrb + 1) + Vector3.up * directionInitial.magnitude + directionInitial;
             //playerMovement.externalGrapplingVelocity = (nextPos + Vector3.up * 
             //Mathf.Clamp(magnitudeOfPlayerBeforeReachingOrb * adjustingJumpHeightByMultiplyingFinalValue,minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb))
             // * adjustingJumpHeightByMultiplyingFinalValue;
             
             yield return null;
         }
+        // playerMovement.UnfreezeVelocity();
 
         secondsAfterReachingOrbWhereJumpEffectHoldsOn = totalSecondsAfterReachingOrb;
         playerMovement.externalGrapplingVelocity = Vector3.zero;
