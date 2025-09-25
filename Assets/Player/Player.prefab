@@ -894,7 +894,7 @@ MonoBehaviour:
   mainCamera: {fileID: 4014435533472361325}
   cameraFovOnIdle: 80
   cameraFovOnMaxSpeed: 90
-  cameraFovOnGrapple: 110
+  cameraFovOnGrapple: 95
   cameraYMovementInMetersWhenPlayerLands: 1
   cameraYIsMovingHowManySeconds: 0.1
 --- !u!114 &8756138315546493721
