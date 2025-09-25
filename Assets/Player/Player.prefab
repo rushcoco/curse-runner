@@ -907,15 +907,15 @@ MonoBehaviour:
   lengthOfDetectableGrappable: 12
   distanceWhereDetectionForGrappableStarts: 2.5
   distanceWhereDetectionForGrappableEnds: 22
-  maxDistance: 30
+  maxDistance: 40
   layerToGrapple:
     serializedVersion: 2
     m_Bits: 128
   cameraPlayer: {fileID: 4014435533472361325}
-  rangeBetweenPlayerAndGrappableToStopGrappling: 1.1
+  rangeBetweenPlayerAndGrappableToStopGrappling: 1.4
   speedAtWhichPlayerIsReachingToTheOrb: 90
-  secondsAfterReachingOrbWhereJumpEffectHoldsOn: 0.7
-  minimumJumpHeightAfterOrb: 2.1
+  secondsAfterReachingOrbWhereJumpEffectHoldsOn: 2.5
+  minimumJumpHeightAfterOrb: 4
   maximumJumpHeightAfterOrb: 30
   adjustingJumpLerpByMultiplyingSeconds: 2.4
   adjustingJumpHeightByMultiplyingFinalValue: 3.4

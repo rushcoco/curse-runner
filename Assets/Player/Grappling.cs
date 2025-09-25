@@ -145,35 +145,30 @@ public class Grappling : MonoBehaviour
 
     private IEnumerator MoveTowardsGrappledObject(RaycastHit hit)
     {
-        Vector3 move = hit.transform.position - transform.position;
-        Vector3 firstmove = move;
         playerMovement.FreezeVelocity();
+        var magnitudeOfPlayerBeforeReachingOrb = playerMovement.GetVelocityMagnitude();
+        var directionInitial = hit.transform.position - transform.position;
+        
         while (Vector3.Distance(transform.position, hit.transform.position) > rangeBetweenPlayerAndGrappableToStopGrappling)
         {
-            move = hit.transform.position - transform.position;
-            Debug.Log(move);
-            move = move.normalized;
-            playerMovement.externalGrapplingVelocity = move * speedAtWhichPlayerIsReachingToTheOrb;
+            var directionUpdatedByFrame = hit.transform.position - transform.position;
+            playerMovement.externalGrapplingVelocity = directionUpdatedByFrame.normalized * speedAtWhichPlayerIsReachingToTheOrb;
             yield return null;
         }
-        // Close enough to the orb
-        // slow down for 2f seconds
-        float velocityMagnitude = playerMovement.GetVelocityMagnitude();
         playerMovement.UnfreezeVelocity();
-        
+        var totalSecondsAfterReachingOrb = secondsAfterReachingOrbWhereJumpEffectHoldsOn;
         while (secondsAfterReachingOrbWhereJumpEffectHoldsOn > 0f)
         {
-            var nextPos = Vector3.Lerp(transform.position, transform.position + firstmove, secondsAfterReachingOrbWhereJumpEffectHoldsOn * adjustingJumpLerpByMultiplyingSeconds);
+            var nextPos = Vector3.Lerp(transform.position, transform.position + directionInitial.normalized + Vector3.up * (directionInitial.sqrMagnitude * adjustingJumpHeightByMultiplyingFinalValue), secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
             secondsAfterReachingOrbWhereJumpEffectHoldsOn -= Time.deltaTime;
 
-            //playerMovement.externalGrapplingVelocity = nextPos * Time.deltaTime;
-            playerMovement.externalGrapplingVelocity = (nextPos + Vector3.up * Mathf.Clamp(velocityMagnitude * secondsAfterReachingOrbWhereJumpEffectHoldsOn,minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb)) * (adjustingJumpHeightByMultiplyingFinalValue * Time.deltaTime);
+            playerMovement.externalGrapplingVelocity = nextPos;
+            //playerMovement.externalGrapplingVelocity = (nextPos + Vector3.up * 
+            //Mathf.Clamp(magnitudeOfPlayerBeforeReachingOrb * adjustingJumpHeightByMultiplyingFinalValue,minimumJumpHeightAfterOrb,maximumJumpHeightAfterOrb))
+            // * adjustingJumpHeightByMultiplyingFinalValue;
             
             yield return null;
-            Debug.Log("Does it do something?");
         }
-        Debug.Log(playerMovement.externalGrapplingVelocity);
         playerMovement.externalGrapplingVelocity = Vector3.zero;
-        Debug.Log(playerMovement.externalGrapplingVelocity);
     }
 }

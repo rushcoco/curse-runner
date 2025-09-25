@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         if (isVelocityFrozen)
         {
             
-            finalVelocity = velocity + externalGrapplingVelocity;
+            finalVelocity = externalGrapplingVelocity;
             characterSelf.Move(finalVelocity * deltaTime);
             return;
         }
@@ -193,8 +193,8 @@ public class PlayerMovement : MonoBehaviour
         if (velocity.y < -maxFallSpeed)
             velocity.y = -maxFallSpeed;
 
-        velocity += externalGrapplingVelocity;
-        characterSelf.Move(velocity * deltaTime);
+        finalVelocity = velocity + externalGrapplingVelocity;
+        characterSelf.Move(finalVelocity * deltaTime);
     }
 
     private void UpdateGround()
