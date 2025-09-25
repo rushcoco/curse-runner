@@ -912,7 +912,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   cameraPlayer: {fileID: 4014435533472361325}
-  rangeBetweenPlayerAndGrappableToStopGrappling: 1.4
+  rangeBetweenPlayerAndGrappableToStopGrappling: 2.4
   speedAtWhichPlayerIsReachingToTheOrb: 90
   secondsAfterReachingOrbWhereJumpEffectHoldsOn: 0.3
   minimumJumpHeightAfterOrb: 4
