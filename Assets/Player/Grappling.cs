@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class Grappling : MonoBehaviour
 {
+    private static readonly int Grapple = Animator.StringToHash("GRAPPLE");
     [SerializeField] private InputActionReference inputGrapple;
     [SerializeField] private float radiusOfAreaWhichGrappableIsDetected;
     [SerializeField] private float lengthOfDetectableGrappable;
@@ -27,6 +28,8 @@ public class Grappling : MonoBehaviour
     [SerializeField] private float maximumJumpHeightAfterOrb;
     [SerializeField] private float adjustingJumpLerpByMultiplyingSeconds;
     [SerializeField] private float adjustingJumpHeightByMultiplyingFinalValue;
+    [SerializeField] private GameObject armGrapple;
+    
     // Needs a thing to hit the other Objects and do check
     // - Raycast?
     // - Physics
@@ -41,6 +44,8 @@ public class Grappling : MonoBehaviour
     private Vector3 grappledObjectPosition;
     private CharacterController ccSelf;
     private PlayerMovement playerMovement;
+    private bool isGrappling;
+    private Animator grapplingAnimator;
 
     private void OnEnable()
     {
@@ -58,6 +63,7 @@ public class Grappling : MonoBehaviour
     {
         ccSelf = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
+        grapplingAnimator = armGrapple.GetComponent<Animator>();
     }
 
     void Start()
@@ -115,6 +121,7 @@ public class Grappling : MonoBehaviour
 
     private void OnPerformedGrapple(InputAction.CallbackContext context)
     {
+        
         Ray ray = new Ray(cameraPlayer.transform.position, cameraPlayer.transform.forward);
         /*RaycastHit[] hits = new RaycastHit[] {};
         Physics.RaycastNonAlloc(ray, hits, maxDistance, layerToGrapple, QueryTriggerInteraction.Ignore);
@@ -131,6 +138,7 @@ public class Grappling : MonoBehaviour
         if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Ignore))
         {
             Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
+            grapplingAnimator.SetBool(Grapple, true);
             StartCoroutine(MoveTowardsGrappledObject(hit));
         }
         // if (Physics.Raycast(cameraPlayer.transform.position, out var hit, cameraPlayer.transform.forward, maxDistance, layerToGrapple,
@@ -157,6 +165,7 @@ public class Grappling : MonoBehaviour
         }
         playerMovement.UnfreezeVelocity();
         var totalSecondsAfterReachingOrb = secondsAfterReachingOrbWhereJumpEffectHoldsOn;
+        grapplingAnimator.SetBool(Grapple, false);
         while (secondsAfterReachingOrbWhereJumpEffectHoldsOn > 0f)
         {
             var nextPos = Vector3.Lerp(transform.position, transform.position + directionInitial.normalized + Vector3.up * (directionInitial.sqrMagnitude * adjustingJumpHeightByMultiplyingFinalValue), secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);

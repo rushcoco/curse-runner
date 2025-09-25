@@ -919,6 +919,7 @@ MonoBehaviour:
   maximumJumpHeightAfterOrb: 30
   adjustingJumpLerpByMultiplyingSeconds: 2.4
   adjustingJumpHeightByMultiplyingFinalValue: 3.4
+  armGrapple: {fileID: 8446688174634635090}
 --- !u!1001 &7757089557835187816
 PrefabInstance:
   m_ObjectHideFlags: 0
