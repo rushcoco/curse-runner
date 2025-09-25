@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpBuffer;
     [SerializeField] private float maxFallSpeed;
     [SerializeField] private float gravity;
+    [SerializeField] private GameObject speedLinesGameObject;
 
     [Header("Movement State Thresholds (m/s)")] [SerializeField]
     private float walkSpeedThreshold;
@@ -70,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         characterSelf = GetComponent<CharacterController>();
+        speedLinesGameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -195,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
         finalVelocity = velocity + externalGrapplingVelocity;
         characterSelf.Move(finalVelocity * deltaTime);
+        speedLinesGameObject.SetActive(finalVelocity.magnitude >= movementSpeedMax);
     }
 
     private void UpdateGround()

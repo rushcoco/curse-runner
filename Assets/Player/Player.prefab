@@ -888,6 +888,7 @@ MonoBehaviour:
   jumpBuffer: 0.2
   maxFallSpeed: 75
   gravity: 64
+  speedLinesGameObject: {fileID: 4422426510609059222}
   walkSpeedThreshold: 6
   runSpeedThreshold: 18
 --- !u!114 &8756138315546493721
@@ -1044,6 +1045,11 @@ PrefabInstance:
 --- !u!4 &3342790722758119436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5027509948176701028, guid: 918e1b58ea2994514bd98157485cd0a2, type: 3}
+  m_PrefabInstance: {fileID: 7757089557835187816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4422426510609059222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6267087224684612606, guid: 918e1b58ea2994514bd98157485cd0a2, type: 3}
   m_PrefabInstance: {fileID: 7757089557835187816}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8789271607334547971
