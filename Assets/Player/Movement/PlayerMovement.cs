@@ -7,48 +7,57 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Input")] [SerializeField] private InputActionReference inputMoving;
+    [Header("Input")] 
+    [SerializeField] private InputActionReference inputMoving;
     [SerializeField] private InputActionReference inputBoosting;
     [SerializeField] private InputActionReference inputJumping;
 
-    [Header("Movement")] [SerializeField] private float movementSpeedStarting;
+    [Header("Movement")] 
+    [SerializeField] private float movementSpeedStarting;
     [SerializeField] private float movementSpeedBoosting;
     [SerializeField] private float movementSpeedMax;
     [SerializeField] private float accelerationGrounded;
     [SerializeField] private float accelerationAir;
     [SerializeField] private float deceleration;
 
-    [Header("Landing/Grounding")] [SerializeField]
-    private float stickToGroundAtXVelocity;
-
+    [Header("Landing/Grounding")]
+    [SerializeField] private float stickToGroundAtXVelocity;
     [SerializeField] private float snapToGroundAtXDistance;
     [SerializeField] private LayerMask groundLayer;
 
-    [Header("Jump Heights (meters)")] [SerializeField]
-    private float minJumpHeightWhenPlayerIsIdle;
-
+    [Header("Jump Heights (meters)")]
+    [SerializeField] private float minJumpHeightWhenPlayerIsIdle;
     [SerializeField] private float minJumpHeightWhenPlayerIsWalking;
     [SerializeField] private float minJumpHeightWhenPlayerIsRunning;
     [SerializeField] private float maxJumpHeightWhenPlayerIsIdle;
     [SerializeField] private float maxJumpHeightWhenPlayerIsWalking;
     [SerializeField] private float maxJumpHeightWhenPlayerIsRunning;
 
-    [Header("Jump Tuning")] [SerializeField]
-    private float holdJumpButtonForXAmountOfSecondsForMaxJump;
-
+    [Header("Jump Tuning")]
+    [SerializeField] private float holdJumpButtonForXAmountOfSecondsForMaxJump;
     [SerializeField] private float coyoteTime; // The max time you are able to still jump, after leaving ground
     [SerializeField] private float jumpBuffer;
     [SerializeField] private float maxFallSpeed;
     [SerializeField] private float gravity;
     [SerializeField] private GameObject speedLinesGameObject;
 
-    [Header("Movement State Thresholds (m/s)")] [SerializeField]
-    private float walkSpeedThreshold;
-
+    [Header("Movement State Thresholds (m/s)")] 
+    [SerializeField] private float walkSpeedThreshold;
     [SerializeField] private float runSpeedThreshold;
+
+    [Header("Camera")] 
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private float cameraFovOnIdle;
+    [SerializeField] private float cameraFovOnMaxSpeed;
+    [SerializeField] private float cameraFovOnGrapple;
+    [SerializeField] private float cameraYMovementInMetersWhenPlayerLands;
+    [SerializeField] private float cameraYIsMovingHowManySeconds;
 
     private CharacterController characterSelf;
     private Vector3 velocity;
+    private Vector2 velocity2D;
+    private Vector2 wishedMovement2D;
+    
     private Vector3 groundNormal;
     private bool grounded;
     public Vector3 externalGrapplingVelocity { get; set; }
@@ -124,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
             
             finalVelocity = externalGrapplingVelocity;
             characterSelf.Move(finalVelocity * deltaTime);
+            AdjustCameraFOVOnGrapple();
             return;
         }
         Vector2 inputDirection = inputMoving.action.ReadValue<Vector2>();
@@ -147,8 +157,8 @@ public class PlayerMovement : MonoBehaviour
         // Apply Acceleration
         // Add here check to see if wishedMovement and currentPlanar Velocity are close to opposite directions
         var deltaVelocity = wishedMovement - currentPlanarVelocity;
-        var velocity2D = new Vector2(velocity.x, velocity.z);
-        Vector2 wishedMovement2D = Vector2.right * wishedDirection.x + Vector2.up * wishedDirection.z;
+        velocity2D = new Vector2(velocity.x, velocity.z);
+        wishedMovement2D = Vector2.right * wishedDirection.x + Vector2.up * wishedDirection.z;
         var angle = Vector2.Angle(velocity2D, wishedMovement2D);
         // Debug.Log(angle);
             
@@ -198,6 +208,7 @@ public class PlayerMovement : MonoBehaviour
         finalVelocity = velocity + externalGrapplingVelocity;
         characterSelf.Move(finalVelocity * deltaTime);
         speedLinesGameObject.SetActive(finalVelocity.magnitude >= movementSpeedMax);
+        AdjustCameraFOVOnVelocity();
     }
 
     private void UpdateGround()
@@ -263,6 +274,18 @@ public class PlayerMovement : MonoBehaviour
 
             velocity.y = Mathf.Min(velocity.y, targetUpVelocity);
         }
+    }
+
+    private void AdjustCameraFOVOnVelocity()
+    {
+        float somethign = velocity2D.magnitude / movementSpeedMax;
+        float newSomt = Mathf.Lerp(cameraFovOnIdle, cameraFovOnMaxSpeed, somethign);
+        mainCamera.fieldOfView = newSomt;
+    }
+
+    private void AdjustCameraFOVOnGrapple()
+    {
+        mainCamera.fieldOfView = cameraFovOnGrapple;
     }
 
     private void OnPerformedBoost(InputAction.CallbackContext context)

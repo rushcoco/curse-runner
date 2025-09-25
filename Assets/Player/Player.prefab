@@ -891,6 +891,12 @@ MonoBehaviour:
   speedLinesGameObject: {fileID: 4422426510609059222}
   walkSpeedThreshold: 6
   runSpeedThreshold: 18
+  mainCamera: {fileID: 4014435533472361325}
+  cameraFovOnIdle: 80
+  cameraFovOnMaxSpeed: 110
+  cameraFovOnGrapple: 134
+  cameraYMovementInMetersWhenPlayerLands: 1
+  cameraYIsMovingHowManySeconds: 0.1
 --- !u!114 &8756138315546493721
 MonoBehaviour:
   m_ObjectHideFlags: 0
