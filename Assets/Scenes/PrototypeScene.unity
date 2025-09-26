@@ -1771,6 +1771,22 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &655561652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8216593300780376654, guid: 7d7905cfcaaaa734da441b6884b6c10d, type: 3}
+  m_PrefabInstance: {fileID: 7516232167004955262}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &655561653 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -1310801215166576312, guid: 7d7905cfcaaaa734da441b6884b6c10d, type: 3}
+  m_PrefabInstance: {fileID: 7516232167004955262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655561652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c6644ea9bd44b64f9c4fb58aaccf65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &670790541
 Mesh:
   m_ObjectHideFlags: 0
@@ -5643,6 +5659,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: lavaGameObject
+      value: 
+      objectReference: {fileID: 655561652}
+    - target: {fileID: 2401872503660893913, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: monoBehaviourLavaIsRising
+      value: 
+      objectReference: {fileID: 655561653}
     - target: {fileID: 3632129726095224898, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5691,6 +5715,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 8756138315546493721, guid: a2146afce2468f349a64374edff4c452, type: 3}
+      propertyPath: lavaIsRisingMonoBehaviour
+      value: 
+      objectReference: {fileID: 655561653}
     - target: {fileID: 9156993022978663049, guid: a2146afce2468f349a64374edff4c452, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7328,7 +7356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5524704174879348948, guid: 7d7905cfcaaaa734da441b6884b6c10d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 5524704174879348948, guid: 7d7905cfcaaaa734da441b6884b6c10d, type: 3}
       propertyPath: m_LocalPosition.z

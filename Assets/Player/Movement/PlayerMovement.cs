@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -51,13 +53,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float cameraYMovementInMetersWhenPlayerLands;
     [SerializeField] private float cameraYIsMovingHowManySeconds;
 
+    [Header("Player Logic")]
+    [SerializeField] private float playerHealthTotal;
+    [SerializeField] private string healthText;
+    [SerializeField] private float ratePlayerGetsDamageFromLavaPerSecond;
+    [SerializeField] private TextMeshProUGUI healthTextPro;
+    [SerializeField] private LavaIsRising monoBehaviourLavaIsRising;
+    [SerializeField] private LayerMask layerAltar;
+    [SerializeField] private GameObject lavaGameObject;
+    
+
     private CharacterController characterSelf;
     private Vector3 velocity;
     private Vector2 velocity2D;
     private Vector2 wishedMovement2D;
+    private float playerHealthCurrent; // TODO Seperate Movement from other Game Logic
     
     private Vector3 groundNormal;
     private bool grounded;
+    private bool gameHasEnded;
     public Vector3 externalGrapplingVelocity { get; set; }
     private bool isVelocityFrozen;
 
@@ -74,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
     private bool boostPending;
     private Vector3 pendingBoostVelocity;
     private bool skipDecelThisFrame;
+    private Grappling monoBehaviourGrapple;
 
     private void Awake()
     {
@@ -115,11 +130,18 @@ public class PlayerMovement : MonoBehaviour
         
         externalGrapplingVelocity = Vector3.zero;
         isVelocityFrozen = false;
+        playerHealthCurrent = playerHealthTotal;
+        gameHasEnded = false;
+        healthTextPro.text = healthText + playerHealthTotal;
+        monoBehaviourGrapple = GetComponent<Grappling>();
     }
 
 
     private void Update()
     {
+        if (gameHasEnded)
+            return;
+            
         float deltaTime = Time.deltaTime;
         skipDecelThisFrame = false;
         Vector3 finalVelocity;
@@ -209,6 +231,25 @@ public class PlayerMovement : MonoBehaviour
         AdjustCameraFOVOnVelocity();
     }
 
+    private void FixedUpdate()
+    {
+    // ajfdajf
+        if (gameHasEnded)
+            return;
+        // Check if Altar is in front of you
+        Ray rayer = new Ray(transform.position, transform.forward);
+        if (Physics.Raycast(rayer, 4f, layerAltar, QueryTriggerInteraction.Ignore))
+        {
+            // Game EndedmonoBehaviour
+            // character movement stop
+            SetGameHasEndedToTrue();
+            // Grappling Stop
+            monoBehaviourGrapple.GameHasEnded();
+            // Show Won text
+            SetGameEndedText("You Won. Great Job :)");
+        }
+    }
+
     private void UpdateGround()
     {
         grounded = false;
@@ -231,6 +272,22 @@ public class PlayerMovement : MonoBehaviour
                 lastGroundedTime = Time.time;
                 // Debug.Log("Ground is true");
             }
+
+            if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Lava") && !gameHasEnded)
+            {
+                playerHealthCurrent -= ratePlayerGetsDamageFromLavaPerSecond * Time.deltaTime;
+                healthTextPro.text = healthText + Mathf.FloorToInt(playerHealthCurrent);
+
+                if (playerHealthCurrent <= 0f)
+                {
+                    SetGameHasEndedToTrue();
+                    // Player Lost
+                    // STop Lava From Rising
+                    SetGameEndedText("You Lost. Game Over");
+
+                }
+            }
+
         }
         
         //Debug.Log("Ray " + grounded + " cc " + characterSelf.isGrounded);
@@ -392,5 +449,21 @@ public class PlayerMovement : MonoBehaviour
     public float GetVelocity2DMagnitude()
     {
         return velocity2D.magnitude;
+    }
+
+    public float GetPlayerHealth()
+    {
+        return playerHealthCurrent;
+    }
+
+    public void SetGameHasEndedToTrue()
+    {
+        gameHasEnded = true;
+        monoBehaviourLavaIsRising.StopLavaFromRising();
+    }
+
+    public void SetGameEndedText(string localText)
+    {
+        healthTextPro.text = localText;
     }
 }

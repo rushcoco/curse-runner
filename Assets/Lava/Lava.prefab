@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c6644ea9bd44b64f9c4fb58aaccf65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rateLavaIsRisingInMetersPerSecond: 0.5

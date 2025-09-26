@@ -14,6 +14,8 @@ public class Grappling : MonoBehaviour
     [SerializeField] private float distanceWhereDetectionForGrappableEnds;
     [SerializeField] private float maxDistance;
     [SerializeField] private LayerMask layerToGrapple;
+    [SerializeField] private LayerMask layerAltar;
+    [SerializeField] private LavaIsRising lavaIsRisingMonoBehaviour;
     // Needs to recognize which objects should be hit and which shouldn't be hit
     // - layers?
     // - get component "Blood Prefab" check?
@@ -44,6 +46,7 @@ public class Grappling : MonoBehaviour
     private PlayerMovement playerMovement;
     private bool isGrappling;
     private Animator grapplingAnimator;
+    private bool gameHasEnded;
 
     private void OnEnable()
     {
@@ -71,6 +74,7 @@ public class Grappling : MonoBehaviour
         point1 = Vector3.zero;
         point2 = Vector3.zero;
         isGrappling = false;
+        gameHasEnded = false;
 
     }
 
@@ -121,6 +125,8 @@ public class Grappling : MonoBehaviour
 
     private void OnPerformedGrapple(InputAction.CallbackContext context)
     {
+        if (gameHasEnded)
+            return;
         if (isGrappling)
             return;
         
@@ -137,7 +143,7 @@ public class Grappling : MonoBehaviour
         }*/
 
 
-        if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Ignore))
         {
             // TODO: Clean This mess of a code.
             Vector3 kdsafj = hit.transform.position - transform.position;
@@ -201,5 +207,10 @@ public class Grappling : MonoBehaviour
         secondsAfterReachingOrbWhereJumpEffectHoldsOn = totalSecondsAfterReachingOrb;
         playerMovement.externalGrapplingVelocity = Vector3.zero;
         isGrappling = false;
+    }
+
+    public void GameHasEnded()
+    {
+        gameHasEnded = true;
     }
 }
