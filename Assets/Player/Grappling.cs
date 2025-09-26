@@ -63,6 +63,7 @@ public class Grappling : MonoBehaviour
     {
         ccSelf = GetComponent<CharacterController>();
         playerMovement = GetComponent<PlayerMovement>();
+        Debug.Log(armGrapple.scene);
         grapplingAnimator = armGrapple.GetComponent<Animator>();
     }
 
