@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stickToGroundAtXVelocity;
     [SerializeField] private float snapToGroundAtXDistance;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask lavaLayer;
 
     [Header("Jump Heights (meters)")]
     [SerializeField] private float minJumpHeightWhenPlayerIsIdle;
@@ -219,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
         var rayLength = characterSelf.height * 0.5f + snapToGroundAtXDistance; // half the height + the distance from gameobject to distance to have to ground
 
         if (Physics.SphereCast(origin, characterSelf.radius * 0.95f, Vector3.down, out var hit, rayLength, groundLayer,
-                QueryTriggerInteraction.Ignore))
+                QueryTriggerInteraction.Ignore) || Physics.SphereCast(origin, characterSelf.radius * 0.95f, Vector3.down, out hit, rayLength, lavaLayer, QueryTriggerInteraction.Ignore))
         {
             // Debug.Log("Found Ground?");
             var slope = Vector3.Angle(hit.normal, Vector3.up);

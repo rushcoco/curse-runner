@@ -139,11 +139,12 @@ public class Grappling : MonoBehaviour
 
         if (Physics.Raycast(ray, out var hit, maxDistance, layerToGrapple, QueryTriggerInteraction.Collide))
         {
+            // TODO: Clean This mess of a code.
             Vector3 kdsafj = hit.transform.position - transform.position;
             if (Physics.Raycast(ray, out RaycastHit hitInfo, kdsafj.magnitude))
             {
                 LayerMask hitLayer = hitInfo.transform.gameObject.layer;
-                if (hitLayer == LayerMask.NameToLayer("Ground") || hitLayer == LayerMask.NameToLayer("Default"))
+                if (hitLayer == LayerMask.NameToLayer("Ground") || hitLayer == LayerMask.NameToLayer("Default") || hitLayer == LayerMask.NameToLayer("Lava"))
                     return;
             }
             //Debug.Log(Physics.queriesHitTriggers);
