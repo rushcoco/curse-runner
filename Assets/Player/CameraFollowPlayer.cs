@@ -13,6 +13,7 @@ public class CameraFollowPlayer : MonoBehaviour
 
     private float xAxis;
     
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnEnable()
     {
@@ -40,7 +41,8 @@ public class CameraFollowPlayer : MonoBehaviour
     void Update()
     {
         Vector2 directionInput = cameraMovementInput.action.ReadValue<Vector2>() * (mouseSensitivity * Time.deltaTime);
-        playerBody.Rotate(Vector3.up * directionInput.x);
+        playerBody.Rotate(Vector3.up * directionInput.x); 
+        
 
         xAxis -= directionInput.y; // Moving camera up and down -> in room is rotation on x-axis
         xAxis = Mathf.Clamp(xAxis, -maxDegreesPlayerCanRotateTheCameraOnLocalXAxis, maxDegreesPlayerCanRotateTheCameraOnLocalXAxis);
