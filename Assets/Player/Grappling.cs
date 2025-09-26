@@ -154,6 +154,7 @@ public class Grappling : MonoBehaviour
             //
             //Debug.Log("Grapple Hitted: " + hit.transform.gameObject.name);
             grapplingAnimator.SetBool(Grapple, true);
+            Debug.Log(grapplingAnimator.GetBool(Grapple));
             StartCoroutine(MoveTowardsGrappledObject(hit));
         }
         // if (Physics.Raycast(cameraPlayer.transform.position, out var hit, cameraPlayer.transform.forward, maxDistance, layerToGrapple,
@@ -182,6 +183,7 @@ public class Grappling : MonoBehaviour
         playerMovement.UnfreezeVelocity();
         var totalSecondsAfterReachingOrb = secondsAfterReachingOrbWhereJumpEffectHoldsOn;
         grapplingAnimator.SetBool(Grapple, false);
+        Debug.Log(grapplingAnimator.GetBool(Grapple));
         while (secondsAfterReachingOrbWhereJumpEffectHoldsOn > 0f)
         {
             var nextPos = Vector3.Lerp(Vector3.zero, directionInitial, secondsAfterReachingOrbWhereJumpEffectHoldsOn / totalSecondsAfterReachingOrb);
