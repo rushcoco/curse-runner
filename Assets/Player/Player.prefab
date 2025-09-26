@@ -510,6 +510,7 @@ MonoBehaviour:
   mouseSensitivity: 60
   invertedHorizontalCamera: 0
   invertedVerticalCamera: 0
+  maxDegreesPlayerCanRotateTheCameraOnLocalXAxis: 85
 --- !u!20 &4014435533472361325
 Camera:
   m_ObjectHideFlags: 0

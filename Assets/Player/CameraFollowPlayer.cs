@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +9,7 @@ public class CameraFollowPlayer : MonoBehaviour
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private bool invertedHorizontalCamera;
     [SerializeField] private bool invertedVerticalCamera;
+    [SerializeField] private float maxDegreesPlayerCanRotateTheCameraOnLocalXAxis;
 
     private float xAxis;
     
@@ -42,10 +42,10 @@ public class CameraFollowPlayer : MonoBehaviour
         Vector2 directionInput = cameraMovementInput.action.ReadValue<Vector2>() * (mouseSensitivity * Time.deltaTime);
         playerBody.Rotate(Vector3.up * directionInput.x);
 
-        xAxis -= directionInput.y; // Moving camera up and down -> in room is rotation on x axis
-        xAxis = Mathf.Clamp(xAxis, -90f, 90f);
+        xAxis -= directionInput.y; // Moving camera up and down -> in room is rotation on x-axis
+        xAxis = Mathf.Clamp(xAxis, -maxDegreesPlayerCanRotateTheCameraOnLocalXAxis, maxDegreesPlayerCanRotateTheCameraOnLocalXAxis);
 
-        transform.localRotation = Quaternion.Euler(xAxis, 0f, 0f);
+        transform.localRotation = Quaternion.Euler(Vector3.right * xAxis);
 
     }
     
